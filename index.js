@@ -64,9 +64,9 @@ app.post("/api/v1/customer", async (req, res) => {
 });
 
 //if the user goes to an unknown route
-// app.get("*", (req, res) => {
-// 	res.sendFile(path.join(__dirname, "client/build/index.html"));
-// });
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
 
 const PORT = process.env.PORT || 3500;
 app.listen(PORT, () => console.log(`Connected to ${process.env.PORT}`));
