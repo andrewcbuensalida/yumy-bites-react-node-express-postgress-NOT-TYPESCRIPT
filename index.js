@@ -2,12 +2,13 @@ const express = require("express");
 const db = require("./db");
 const cors = require("cors");
 require("dotenv").config();
-const path = require('path')
+const path = require("path");
 const app = express();
 // app.use(cors());
 
 if (process.env.NODE_ENV === "production") {
-	app.use(express.static("client/build"));
+	app.use(express.static(path.join(__dirname, "..", "build")));
+	app.use(express.static("public"));
 }
 
 app.use(express.json());
@@ -35,7 +36,7 @@ app.get("/api/v1/", async (req, res) => {
 			},
 		});
 	} catch (error) {
-		console.log('this is error',error);
+		console.log("this is error", error);
 		res.status(400).json({
 			ok: false,
 			data: {},
@@ -63,19 +64,9 @@ app.post("/api/v1/customer", async (req, res) => {
 	}
 });
 
-
-
-app.get("/*", function (req, res) {
-	res.sendFile(
-		path.join(__dirname, "client/build/index.html"),
-		function (err) {
-			if (err) {
-				res.status(500).send(err);
-			}
-		}
-	);
+app.use((req, res, next) => {
+	res.sendFile(path.join(__dirname, "..", "build", "index.html"));
 });
-
 
 const PORT = process.env.PORT || 3500;
 app.listen(PORT, () => console.log(`Connected to ${process.env.PORT}`));
