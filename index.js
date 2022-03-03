@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("./db");
+const pool = require("./pool");
 const cors = require("cors");
 require("dotenv").config();
 const path = require("path");
@@ -15,14 +15,14 @@ if (process.env.NODE_ENV === "production") {
 app.get("/api/v1/", async (req, res) => {
 	console.log(`get hit`);
 	try {
-		const customers = await db.query(
+		const customers = await pool.query(
 			`SELECT * FROM customer ORDER BY "lastName"`
 		);
-		const products = await db.query(
+		const products = await pool.query(
 			`SELECT * FROM product ORDER BY "name"`
 		);
 
-		const orders = await db.query(
+		const orders = await pool.query(
 			`SELECT * FROM "order" ORDER BY "deliveryTime"`
 		);
 
@@ -45,7 +45,7 @@ app.get("/api/v1/", async (req, res) => {
 
 app.post("/api/v1/customer", async (req, res) => {
 	try {
-		const result = await db.query(
+		const result = await pool.query(
 			"INSERT INTO customer (firstName,lastName,homeAddress,cellPhone) VALUES ($1,$2,$3,$4) RETURNING *",
 			[
 				req.body.firstName,

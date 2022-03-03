@@ -18,12 +18,12 @@ CREATE DATABASE yummybites;
 
 
 
--- this is to create the table. have users in the future, but for now just yummybites
+-- this is to create the table
 CREATE TABLE "customer" (
-    id BIGSERIAL not null primary key,
+    id SERIAL not null primary key,
     "firstName" varchar(50) not null,
     "lastName" varchar(50) not null,
-    "homeAddress" varchar(100) not null,
+    "homeAddress" varchar(255) not null,
 	"cellPhone" varchar(50) not null
 );
 
