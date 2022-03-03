@@ -4,12 +4,11 @@ const cors = require("cors");
 require("dotenv").config();
 const path = require("path");
 const app = express();
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 
 if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "client/build")));
-	app.use(express.static("public"));
+	app.use(express.static("client/build"));
 }
 
 app.get("/api/v1/", async (req, res) => {
