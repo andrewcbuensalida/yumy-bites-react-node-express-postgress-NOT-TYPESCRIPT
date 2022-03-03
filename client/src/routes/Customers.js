@@ -4,7 +4,6 @@ import AddCustomer from "../components/AddCustomer";
 import CustomerSearch from "../components/CustomerSearch";
 import CustomersList from "../components/CustomersList";
 import Table from "../components/Table";
-import { ICustomer } from "../interfaces/Interfaces";
 
 //could do it this way or declaring the type next to the arguments below
 

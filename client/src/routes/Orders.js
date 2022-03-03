@@ -3,12 +3,6 @@ import { useOutletContext } from "react-router-dom";
 import AddOrder from "../components/AddOrder";
 import FilterOrders from "../components/FilterOrders";
 import Table from "../components/Table";
-import {
-	IOrder,
-	ICustomer,
-	IProduct,
-	IOrderWithProductsAndCustomer,
-} from "../interfaces/Interfaces";
 
 const Orders = () => {
 	const [ordersWithProductsAndCustomers, setOrdersWithProductsAndCustomers] =

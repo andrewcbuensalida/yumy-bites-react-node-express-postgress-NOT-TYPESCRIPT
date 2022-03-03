@@ -1,5 +1,4 @@
 import React from "react";
-import { IProduct } from "../interfaces/Interfaces";
 import "./ProductBody.css";
 
 function ProductBody({ oneContent }) {

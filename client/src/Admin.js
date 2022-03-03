@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import AdminNavbar from "./components/AdminNavbar";
-import BASE_URL from "./URL";
-
-// const BASE_URL = ''
+import URL from "./URL";
 
 function Admin() {
 	const [customers, setCustomers] = useState([]);
@@ -12,26 +10,18 @@ function Admin() {
 
 	//fetch all data from database
 	useEffect(() => {
-		try {
-			const getData = async (URL) => {
+		const getData = async (URL) => {
+			try {
 				const responseRaw = await fetch(URL);
 				const { ok, data } = await responseRaw.json();
 
-				console.log(`This is data.orders[0]`);
-				console.log(data.orders[0].deliveryTime);
-
-				console.log(`This is new Date`);
-				console.log(new Date(data.orders[0].deliveryTime));
-
-				const ordersWithDateObject = data.orders.map(
-					(order) => {
-						return {
-							...order,
-							deliveryTime: new Date(order.deliveryTime),
-							dateOrdered: new Date(order.dateOrdered),
-						};
-					}
-				);
+				const ordersWithDateObject = data.orders.map((order) => {
+					return {
+						...order,
+						deliveryTime: new Date(order.deliveryTime),
+						dateOrdered: new Date(order.dateOrdered),
+					};
+				});
 
 				// maybe should separate these calls so all wont fail if one fails
 				if (ok) {
@@ -39,11 +29,11 @@ function Admin() {
 					setProducts(data.products);
 					setOrders(ordersWithDateObject);
 				}
-			};
-			getData(BASE_URL);
-		} catch (error) {
-			console.log(error);
-		}
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		getData(URL);
 	}, []);
 
 	return (

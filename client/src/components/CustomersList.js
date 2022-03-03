@@ -2,7 +2,6 @@ import React from "react";
 import { useOutletContext } from "react-router-dom";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import NavigationIcon from "@mui/icons-material/Navigation";
-import { ICustomer } from "../interfaces/Interfaces";
 
 function CustomersList() {
 	const {

@@ -6,7 +6,6 @@ import Modal from "@mui/material/Modal";
 import "./AddOrder.css";
 import Checkbox from "./Checkbox";
 import BasicDateTimePicker from "./DateTimePicker";
-import { ICustomer, IItem, IOrder, IProduct } from "../interfaces/Interfaces";
 import Table from "./Table";
 import Button from "./Button";
 
@@ -36,7 +35,7 @@ function AddOrder({
 	const [isPaid, setIsPaid] = useState(false);
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
-	const [date, setDate] = useState<Date | null>(new Date());
+	const [date, setDate] = useState(new Date());
 	const [deliveryAddress, setDeliveryAddress] = useState("");
 	const [items, setItems] = useState([]);
     

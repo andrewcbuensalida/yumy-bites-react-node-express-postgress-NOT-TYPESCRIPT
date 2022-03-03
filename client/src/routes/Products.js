@@ -3,7 +3,6 @@ import React from "react";
 import ProductSearch from "../components/ProductSearch";
 import AddProduct from "../components/AddProduct";
 import Table from "../components/Table";
-import { IProduct } from "../interfaces/Interfaces";
 import { useOutletContext } from "react-router-dom";
 
 function Products() {

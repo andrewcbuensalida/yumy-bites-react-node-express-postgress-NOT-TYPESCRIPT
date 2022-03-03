@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { IOrderWithProductsAndCustomer } from "../interfaces/Interfaces";
 import Checkbox from "./Checkbox";
 import "./FilterOrders.css";
 

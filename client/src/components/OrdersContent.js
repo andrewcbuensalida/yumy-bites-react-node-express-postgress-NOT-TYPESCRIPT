@@ -2,7 +2,6 @@ import React from "react";
 import { format } from "date-fns";
 
 import "./OrdersContent.css";
-import { IItemWithProduct, IOrderWithProductsAndCustomer } from "../interfaces/Interfaces";
 
 function OrdersContent({ oneContent }) {    
 	return (
