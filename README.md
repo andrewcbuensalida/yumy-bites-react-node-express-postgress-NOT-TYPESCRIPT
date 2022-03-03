@@ -21,3 +21,8 @@ go into folder then
 git init
 then npm init
 then npx create-react-app client
+
+
+
+=========================================================================
+wasnt styling because browser was getting styles from stale cache, need to turn it off
