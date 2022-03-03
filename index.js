@@ -7,6 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static("client/build"));
+}
+
 
 app.get("/api/v1/", async (req, res) => {
 	console.log(`get hit`);
@@ -60,19 +64,17 @@ app.post("/api/v1/customer", async (req, res) => {
 });
 
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static("client/build"));
-	app.get("/*", function (req, res) {
-		res.sendFile(
-			path.join(__dirname, "client/build/index.html"),
-			function (err) {
-				if (err) {
-					res.status(500).send(err);
-				}
+
+app.get("/*", function (req, res) {
+	res.sendFile(
+		path.join(__dirname, "client/build/index.html"),
+		function (err) {
+			if (err) {
+				res.status(500).send(err);
 			}
-		);
-	});
-}
+		}
+	);
+});
 
 
 const PORT = process.env.PORT || 3500;
