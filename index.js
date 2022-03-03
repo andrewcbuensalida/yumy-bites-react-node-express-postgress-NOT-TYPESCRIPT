@@ -63,7 +63,7 @@ app.post("/api/v1/customer", async (req, res) => {
 	}
 });
 
-//if the user goes to an unknown route
+//if the user goes to an unknown route. this is actually really import to go to other routes. without this, and it shows cannot get /<path>
 app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
