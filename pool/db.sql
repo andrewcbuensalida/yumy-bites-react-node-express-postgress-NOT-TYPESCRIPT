@@ -59,7 +59,7 @@ INSERT INTO "product" ("name","price","imageUrl") VALUES ('box Kutsinta','200','
 CREATE TABLE "order" (
     "id" SERIAL NOT NULL PRIMARY KEY,
     "customerId" INTEGER NOT NULL REFERENCES "customer"(id),
-    --might be easier to just do varchar than json
+    --maybe shouldve made a junction table order_items instead of json
     "items" json NOT NULL,
     "deliveryAddress" VARCHAR(255) NOT NULL,
     "deliveryTime" TIMESTAMPTZ NOT NULL,

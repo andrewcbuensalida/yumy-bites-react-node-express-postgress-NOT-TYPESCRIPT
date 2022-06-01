@@ -1,3 +1,26 @@
+==============================================
+TODO
+    high priority
+        customer search
+        customer search in orders
+        add order
+        edit order
+        toggle pending
+        toggle paid
+        add customer
+        add product
+        edit product
+        show paid
+
+    low priority
+        delete customer
+        call customer
+        navigate to customer
+        edit customer
+        product search
+
+
+
 ===========================================================================================
 postgres
 had to change id columns type from bigint to int because postgres converts numbers to strings
